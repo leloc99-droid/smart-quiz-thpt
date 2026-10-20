@@ -1,0 +1,550 @@
+{
+  "Tin học": [
+    {
+      "id": "word_Tin học_1",
+      "q": "(B-A1). Thông tin khi đưa vào máy tính, chúng đều được biến đổi thành dạng chung đó là: Trong Tin học, dữ liệu là .",
+      "options": [
+        "văn bản",
+        "âm thanh",
+        "hình ảnh",
+        "dãy bít"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_2",
+      "q": "(B-A1). Đơn vị nhỏ nhất để biểu diễn thông tin trong máy tính là",
+      "options": [
+        "bit",
+        "Byte",
+        "KB",
+        "MB"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_3",
+      "q": "(B-A1). Một byte bằng:",
+      "options": [
+        "4 bit",
+        "8 bit",
+        "6 bit",
+        "16 bit"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_4",
+      "q": "(H-A1). Thông tin là gì?",
+      "options": [
+        "Các văn bản và số liệu",
+        "Tất cả những gì mang lại cho chúng ta hiểu biết",
+        "Văn bản, hình ảnh, âm thanh",
+        "Hình ảnh, âm thanh"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_5",
+      "q": "(H-A1). Hãy chọn phương án đúng.",
+      "options": [
+        "1MB= 1024B",
+        "1Byte = 1024 Bit",
+        "1KB = 1024MB",
+        "1KB = 1024 B"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_6",
+      "q": "(VD-A1). Hãy chọn phương án ghép đúng: Mã hóa thông tin thành dữ liệu là quá trình…",
+      "options": [
+        "Chuyển thông tin bên ngoài thành thông tin bên trong máy tính",
+        "Chuyển thông tin về dạng mà máy tính có thể xử lí đượ",
+        "Chuyển thông tin về dạng mã ASCII.",
+        "Thay đổi hình thức biểu diễn để người khác không hiểu đượ"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_7",
+      "q": "(VD-A1). Một hình ảnh dung lượng 3 MB xấp xỉ bằng",
+      "options": [
+        "3072 KB",
+        "2048 KB",
+        "1024 KB",
+        "3000 KB"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_8",
+      "q": "(B-A2). Trong các thiết bị sau đây, thiết bị nào là thiết bị thông minh?",
+      "options": [
+        "Máy tính bỏ túi",
+        "Cân điện tử",
+        "Máy tính xách tay",
+        "Đồng hồ lịch vạn niên"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_9",
+      "q": "(B-A2). Loại công cụ nào gắn liền với nền văn minh thông tin?",
+      "options": [
+        "Máy tính bỏ túi",
+        "Máy tính điện tử",
+        "Máy phát điện",
+        "Đồng hồ lịch vạn niên"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_10",
+      "q": "(B-A2). Chọn phương án ghép đúng nói về thuật ngữ tin học trong các câu sau: Tin học là…",
+      "options": [
+        "Lập chương trình cho máy tính",
+        "Máy tính và các công việc liên quan đến máy tính điện tử",
+        "Áp dụng máy tính trong các hoạt động xử lý thông tin",
+        "Ngành khoa học về xử lý thông tin tự động dựa trên máy tính điện tử"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_11",
+      "q": "(B-A2).Chọn nhóm từ thích hợp điền vào đoạn sau: Ngành tin học gắn liền với…… và ……máy tính điện tử.",
+      "options": [
+        "Tiêu thụ, sự phát triển",
+        "Sự phát triển, tiêu thụ",
+        "Sử dụng, tiêu thụ",
+        "Sự phát triển, sử dụng"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_12",
+      "q": "(B-A2).  Tin học là một ngành khoa học vì đó là ngành:",
+      "options": [
+        "Có nội dung, mục tiêu, phương pháp nghiên cứu riêng",
+        "Được sinh ra trong nền văn minh thông tin",
+        "Sử dụng máy tính điện tử",
+        "Nghiên cứu máy tính điện tử"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_13",
+      "q": "(H-A2). Đặc thù của ngành tin học là gì?",
+      "options": [
+        "Quá trình nghiên cứu và ứng dụng các công cụ tính toán",
+        "Quá trình nghiên cứu và xử lí thông tin một cách tự động",
+        "Quá trình nghiên cứu và triển khai các ứng dụng không tách rời việc phát triển và sử dụng máy tính điện tử",
+        "Quá trình nghiên cứu và xử lí thông tin"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_14",
+      "q": "(H-A2). Trong những tình huống nào sau đây, máy tính thực thi công việc tốt hơn con người?",
+      "options": [
+        "Khi dịch một tài liệu",
+        "Khi thực hiện một phép toán phức tạp",
+        "Khi chuẩn đoán bệnh",
+        "Khi phân tích tâm lí một con người"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_15",
+      "q": "(H-A2). Máy tính trở thành công cụ lao động không thể thiếu được trong xã hội hiện đại vì:",
+      "options": [
+        "Máy tính tính toán cực kì nhanh và chính xá",
+        "Máy tính giúp cho con người giải tất cả các bài toán khó",
+        "Máy tính là công cụ soạn thảo văn bản và cho ta truy cập vào Internet để tìm kiếm thông tin",
+        "Máy tính cho ta khả năng lưu trữ và xử lý thông tin"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_16",
+      "q": "(H-A2). Phát biểu nào dưới đây là sai?",
+      "options": [
+        "Máy tính tốt là máy tính nhỏ, gọn và đẹp",
+        "Máy tính ra đời làm thay đổi phương thức quản lí và giao tiếp trong xã hội",
+        "Các chương trình trên máy tính ngày càng đáp ứng được nhiều ứng dụng thực tế và dễ sử dụng hơn",
+        "Giá thành máy tính ngày càng hạ nhưng tốc độ, độ chính xác của máy tính ngày càng cao"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_17",
+      "q": "(VD-A2) Phát biểu nào sau đây là đúng?",
+      "options": [
+        "Máy tính là sản phẩm trí tuệ duy nhất của con người",
+        "Học tin học là học sử dụng máy tính",
+        "Máy tính có thể thay thế hoàn toàn cho con người trong việc xử lý thông tin",
+        "Con người phát triển toàn diện của xã hội hiện đại là con người phải có hiểu biết về tin họ"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_18",
+      "q": "(VD-A2) Sức mạnh của máy tính phụ thuộc vào những yếu tố nào?",
+      "options": [
+        "Khả năng tính toán nhanh của nó",
+        "Giá thành ngày càng rẻ",
+        "Khả năng và sự hiểu biết của con người",
+        "Khả năng lưu trữ lớn"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_19",
+      "q": "(VD-A2)  Theo em, hạn chế lớn nhất của máy tính hiện nay là gì?",
+      "options": [
+        "Khả năng lưu trữ còn thấp so với nhu cầu",
+        "Giá thành vẫn còn đắt so với đời sống hiện nay",
+        "Kết nối mạng internet còn chậm",
+        "Không có khả năng tư duy toàn diện như con người"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_20",
+      "q": "(VD-A2)  Thiết bị nào dưới đây là thiết bị thông minh:",
+      "options": [
+        "Đồng hồ kết nối với điện thoại qua Bluetooth",
+        "Cân",
+        "Ổ cắm",
+        "Khóa đa năng"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_21_1",
+      "q": "(NB 1.1) Hai hệ điều hành phổ biến cho thiết bị di động?",
+      "options": [
+        "MAC và JAVA",
+        "IOS và Android",
+        "CONTROL và BETA",
+        "Android và QC"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_22_2",
+      "q": "(NB 1.1) Hệ điều hành Android được phát triển bởi công ty nào?",
+      "options": [
+        "Apple",
+        "Microsoft",
+        "Google",
+        "IBM"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_23_3",
+      "q": "(NB 1.1)  Thiết bị nào không sử dụng hệ điều hành?",
+      "options": [
+        "Laptop",
+        "Điện thoại thông minh",
+        "Máy tính bảng",
+        "Lò vi sóng"
+      ],
+      "answer": 3,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_24_4",
+      "q": "(NB 1.1)  Người dùng và máy tính giao tiếp với nhau thông qua gì?",
+      "options": [
+        "hệ điều hành",
+        "đĩa cứng",
+        "chuột",
+        "bàn phím"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_25_6",
+      "q": "(NB 1.2)  Phần mềm nào sau đây không phải là trình duyệt web?",
+      "options": [
+        "Coccoc",
+        "Google Chrome",
+        "Windows",
+        "Firefox"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_26_7",
+      "q": "(NB 1.3)  Bộ nhớ ngoài dùng để làm gì?",
+      "options": [
+        "Sử dụng để lưu trữ dữ liệu lâu dài, không cần nguồn nuôi, có dung lượng lớn",
+        "Sử dụng để lưu trữ dữ liệu ngắn hạn, cần nguồn nuôi, có dung lượng lớn",
+        "Sử dụng để lưu trữ dữ liệu lâu dài, cần nguồn nuôi, có dung lượng lớn",
+        "Sử dụng để lưu trữ dữ liệu nhanh, cần nguồn nuôi, có dung lượng nhỏ"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_27_8",
+      "q": "(NB 1.3) Thiết bị nào sau đây là bộ nhớ ngoài?",
+      "options": [
+        "CPU",
+        "ROM",
+        "Đĩa cứng",
+        "RAM"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_28_9",
+      "q": "(NB 1.3)  Tuỳ theo cách sử dụng, bộ nhớ trong chia thành những loại nào?",
+      "options": [
+        "ROM và RAM",
+        "ROM và thẻ nhớ",
+        "RAM và thẻ nhớ",
+        "Thẻ nhớ và CPU"
+      ],
+      "answer": 0,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_29_10",
+      "q": "(NB 1.4) Độ phân giải màn hình thể hiện bằng?",
+      "options": [
+        "Khoảng thời gian cần thiết để có thể đổi màu một điểm ảnh",
+        "Hình ảnh trên màn hình được tạo liên tục",
+        "Số điểm ảnh theo chiều ngang và chiều dọc của màn hình",
+        "Độ dài đường chéo trên màn hình"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_30_11",
+      "q": "(TH 1.1) Tìm câu sai trong các câu dưới đây khi nói về hệ điều hành?",
+      "options": [
+        "Hệ điều hành đảm bảo giao tiếp giữa người dùng và máy tính",
+        "Chức năng chính của hệ điều hành là thực hiện tìm kiếm thông tin trên Internet",
+        "Hệ điều hành cung cấp các phương tiện và dịch vụ để người sử dụng dễ dàng thực hiện chương trình, quản lí chặt chẽ, khai thác các tài nguyên của máy tính một cách tối ưu",
+        "Hệ điều hành Windows là hệ điều hành dùng cho máy tính cá nhân của hãng Microsoft"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_31_12",
+      "q": "(TH 1.2) Cần làm thế nào để kết nối Internet?",
+      "options": [
+        "Người dùng đăng ký với một nhà cung cấp dịch vụ Internet để được hỗ trợ cài đặt Internet",
+        "Người dùng đăng ký với một nhà cung cấp dịch vụ Internet để được cấp quyền truy cập Internet",
+        "Người dùng đăng ký với một nhà cung cấp dịch vụ Internet (ISP) để được hỗ trợ cài đặt và cấp quyền truy cập Internet",
+        "Wi-Fi"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_32_13",
+      "q": "(TH 1.2) Một doanh nghiệp nhỏ muốn sử dụng phần mềm kế toán miễn phí nhưng vẫn có thể thuê lập trình viên chỉnh sửa theo đặc thù hoạt động. Họ nên chọn loại phần mềm nào?",
+      "options": [
+        "Phần mềm thương mại có bản quyền",
+        "Phần mềm nguồn mở",
+        "Phần mềm web miễn phí",
+        "Phần mềm crack"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_33_14",
+      "q": "(TH 1.4) Khi chia sẻ ảnh nhanh từ điện thoại sang laptop không dây nên dùng cách nào?",
+      "options": [
+        "USB",
+        "Bluetooth",
+        "HDMI",
+        "VGA"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_34_15",
+      "q": "(VD 1.2) Trong các tình huống sau, đâu là rủi ro lớn nhất khi phụ thuộc hoàn toàn vào phần mềm web?",
+      "options": [
+        "Không chỉnh được font chữ",
+        "Mất dữ liệu khi mất kết nối Internet hoặc dịch vụ ngừng hoạt động",
+        "Không chia sẻ được",
+        "Không tải về máy"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_35_16",
+      "q": "(VD 1.2)  Khi làm việc trên Google Docs, nếu hai người cùng sửa một đoạn văn bản cùng lúc thì hệ thống sẽ như thế nào?",
+      "options": [
+        "Ghi đè ngẫu nhiên",
+        "Chỉ lưu người sửa sau",
+        "Tự động đồng bộ và hiển thị theo thời gian thực",
+        "Báo lỗi không cho sửa"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_36_17",
+      "q": "(VD 1.4)  Để đảm bảo an toàn dữ liệu khi dùng USB ở nơi công cộng cần thực hiện thao tác nào?",
+      "options": [
+        "Mở trực tiếp",
+        "Quét virus trước khi sử dụng",
+        "Format ngay",
+        "Chép hết dữ liệu ra"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_37_18",
+      "q": "(VD 1.4)  Khi cắm USB vào máy tính trường học nhưng bị khóa không cho truy cập, nguyên nhân hợp lí nhất là gì?",
+      "options": [
+        "USB bị hỏng",
+        "Máy bị virus",
+        "Chính sách bảo mật của hệ điều hành chặn thiết bị ngoài",
+        "Thiếu RAM"
+      ],
+      "answer": 2,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_38_19",
+      "q": "(VD 1.4)  Máy chiếu đã kết nối HDMI nhưng màn hình vẫn không hiển thị. Cách xử lí đúng nhất là gì?",
+      "options": [
+        "Khởi động lại máy chiếu",
+        "Kiểm tra chế độ xuất màn hình (Duplicate/Extend) trên máy tính",
+        "Cài lại Windows",
+        "Đổi dây USB"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    },
+    {
+      "id": "word_Tin học_39_20",
+      "q": "(VD 1.4)  Thiết bị nào cần cài driver trước khi dùng?",
+      "options": [
+        "USB",
+        "Máy in",
+        "Chuột có dây",
+        "Bàn phím"
+      ],
+      "answer": 1,
+      "topic": "Nhập từ Word",
+      "explain": "Câu hỏi được nhập từ đề Word.",
+      "review": "Ôn lại câu hỏi và kiến thức liên quan."
+    }
+  ]
+}
