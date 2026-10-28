@@ -190,11 +190,14 @@ NAVBAR = """
 <nav class="navbar">
   <a href="{{ url_for('home') }}">⌂ Trang chủ</a>
   <a href="{{ url_for('home') }}">▤ Tạo đề</a>
-  <a href="{{ url_for('question_bank') }}">▦ Ngân hàng câu hỏi</a>
-  <a href="{{ url_for('import_word') }}">▣ Nhập đề Word</a>
+  {% if teacher_authenticated or session.get('judge_name') %}
+    <a href="{{ url_for('question_bank') }}">▦ Ngân hàng câu hỏi</a>
+    <a href="{{ url_for('import_word') }}">▣ Nhập đề Word</a>
+  {% endif %}
   {% if teacher_authenticated %}
     <span class="who">♙ {{ teacher_name or 'Giáo viên' }}</span>
   {% else %}
+    {% if session.get('judge_name') %}<span class="who">♙ Giám khảo: {{ session.get('judge_name') }}</span>{% endif %}
     <a href="{{ url_for('teacher_login') }}">♙ Giáo viên</a>
   {% endif %}
 </nav>
@@ -209,8 +212,13 @@ HOME_TEMPLATE = """
 </head><body><div class="container">
 """ + NAVBAR + HEADER + """
 <div class="card">
-    <h2>Chào mừng thầy cô và các em học sinh!</h2>
-    <p>Chọn môn học để bắt đầu ôn tập.</p>
+    <h2>Chào mừng thầy cô, các em học sinh và quý giám khảo!</h2>
+    <p>Giám khảo có thể trải nghiệm phần mềm ngay, không cần mật khẩu.</p>
+    <form method="post" action="{{ url_for('judge_entry') }}" style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 20px">
+        <input name="judge_name" type="text" maxlength="80" placeholder="Nhập họ tên (không bắt buộc)" value="{{ session.get('judge_name','') }}" style="flex:1;min-width:220px;padding:12px;border:1px solid #cbd5e1;border-radius:8px">
+        <button class="btn" type="submit">Bắt đầu trải nghiệm</button>
+    </form>
+    <p>Hoặc chọn môn học bên dưới để bắt đầu làm bài.</p>
     <div class="subjects">
         {% for subject in subjects %}
         <a class="subject" href="{{ url_for('quiz', subject=subject) }}">
@@ -411,6 +419,17 @@ QUIZ_TEMPLATE = """
 <div class="footer">SMART QUIZ THPT | {{ school }}</div>
 </div></body></html>
 """
+
+
+@app.route("/judge-entry", methods=["POST"])
+def judge_entry():
+    # Chế độ trải nghiệm dành cho giám khảo: chỉ lưu tên hiển thị, không cấp quyền quản trị.
+    judge_name = re.sub(r"\s+", " ", request.form.get("judge_name", "").strip())[:80]
+    if judge_name:
+        session["judge_name"] = judge_name
+    else:
+        session.pop("judge_name", None)
+    return redirect(url_for("home"))
 
 
 @app.route("/")
@@ -722,8 +741,10 @@ QUESTION_BANK_TEMPLATE = """
 """
 
 @app.route("/question-bank")
-@teacher_required
 def question_bank():
+    # Giám khảo đã nhập tên được xem ngân hàng; chỉ giáo viên mới có quyền quản trị.
+    if not session.get("teacher_authenticated") and not session.get("judge_name"):
+        return redirect(url_for("home"))
     subjects = list(QUESTIONS.keys())
     selected_subject = request.args.get("subject", subjects[0] if subjects else "")
     if selected_subject not in QUESTIONS:
@@ -747,14 +768,17 @@ def question_bank():
         search_text=search_text,
         questions=filtered,
         total_subject=len(all_questions),
-        teacher_authenticated=True,
-        teacher_name=session.get("teacher_name", "Giáo viên")
+        teacher_authenticated=bool(session.get("teacher_authenticated")),
+        teacher_name=session.get("teacher_name") or session.get("judge_name", "Giám khảo")
     )
 
 
 @app.route("/import-word", methods=["GET", "POST"])
-@teacher_required
 def import_word():
+    # Giám khảo được thử tải và xem trước đề Word; chỉ giáo viên mới được lưu vào ngân hàng thật.
+    is_teacher = bool(session.get("teacher_authenticated"))
+    if not is_teacher and not session.get("judge_name"):
+        return redirect(url_for("home"))
     if request.method == "POST":
         subject = request.form.get("subject", "")
         file = request.files.get("word_file")
@@ -771,6 +795,8 @@ def import_word():
                     selected_subject=subject, teacher_name=session.get("teacher_name", "Giáo viên"),
                     error="Chưa nhận diện được câu hỏi. Thầy kiểm tra số câu, định dạng A/B/C/D và từ khóa DẠNG: DUNGSAI.")
             if action == "save":
+                if not is_teacher:
+                    return "Chế độ giám khảo chỉ được kiểm tra và xem trước đề Word. Muốn lưu vào ngân hàng chính thức, vui lòng đăng nhập giáo viên.", 403
                 added = save_imported_questions(subject, questions)
                 mc_count = sum(1 for q in questions if q.get("type") != "true_false" and q.get("answer") is not None)
                 tf_count = sum(1 for q in questions if q.get("type") == "true_false" and len(q.get("statements", [])) == 4)
@@ -782,7 +808,7 @@ def import_word():
             valid_mc = sum(1 for q in questions if q.get("type") != "true_false" and all(k in q.get("options", {}) for k in "ABCD") and q.get("answer") in ("A", "B", "C", "D"))
             return render_template_string(IMPORT_PREVIEW_TEMPLATE, subject=subject, subjects=list(QUESTIONS.keys()),
                 teacher_name=session.get("teacher_name", "Giáo viên"), questions=questions, mc_count=mc_count, tf_count=tf_count, valid_mc=valid_mc,
-                valid_tf=valid_tf, total=len(questions), school=SCHOOL)
+                valid_tf=valid_tf, total=len(questions), school=SCHOOL, can_save=is_teacher)
         except Exception as e:
             return render_template_string(IMPORT_TEMPLATE, subjects=list(QUESTIONS.keys()),
                 selected_subject=subject, teacher_name=session.get("teacher_name", "Giáo viên"), error="Không đọc được tệp Word: " + str(e))
@@ -802,7 +828,7 @@ IMPORT_TEMPLATE = r"""
 h1{font-size:36px;margin:0 0 6px;color:#17468f}.intro{font-size:20px;color:#526782;margin:0 0 25px}.formgrid{display:grid;grid-template-columns:250px minmax(260px,720px);gap:20px;align-items:center;margin:18px 0}.formgrid label{font-weight:700;font-size:20px}select,input[type=file]{font:inherit;width:100%;padding:14px;border:2px solid #d8e2ef;border-radius:10px;background:#fff;color:#172b4d}
 button,.btn{font:inherit;font-weight:700;border:0;border-radius:11px;padding:15px 24px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}.blue{background:#0868f5;color:white}.green{background:#17ad67;color:white}.muted{background:#e8eef5;color:#263d58}.actions{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:22px 0}.back{color:#6335d7;font-weight:700}.notice{padding:17px 20px;border-radius:13px;background:#fff6df;border:1px solid #ffe2a0;margin:22px 0}.notice strong{display:block;color:#ad310e;font-size:21px}.examples{display:grid;grid-template-columns:1fr 1fr;gap:16px}.example{padding:20px;border-radius:14px;font-size:17px}.mc{background:#eaf5ff;border:1px solid #c5e4ff}.tf{background:#e5fff1;border:1px solid #b8f3d4}.example h2{font-size:23px;margin:0 0 12px}.sample{background:white;border:1px solid #dbe5f0;border-radius:10px;padding:16px}.sample b{color:#0a4ca2}.tf .sample b{color:#bd271b}.error{background:#fff0f0;border:1px solid #ffcaca;color:#9e1c1c;padding:14px;border-radius:10px}.small{font-size:15px;color:#5b6d82}@media(max-width:800px){.formgrid{grid-template-columns:1fr;gap:8px}.examples{grid-template-columns:1fr}.wrap{padding:0 10px}.panel{padding:20px}h1{font-size:29px}.topbar{padding:16px}.brand{font-size:21px}}
 </style></head><body>
-<header class="topbar"><div class="brand">SMART QUIZ THPT<small>HUỲNH TẤN PHÁT – VĨNH LONG</small></div><div class="nav"><a style="color:white;text-decoration:none" href="{{ url_for('home') }}">⌂ Trang chủ</a>　 <a style="color:white;text-decoration:none" href="{{ url_for('home') }}">▤ Tạo đề</a>　 <a style="color:white;text-decoration:none" href="{{ url_for('question_bank') }}">▦ Ngân hàng câu hỏi</a>　 <a style="color:white;text-decoration:none" href="{{ url_for('import_word') }}">▣ Nhập đề Word</a>　 ♙ {{ teacher_name or 'Giáo viên' }}</div></header>
+<header class="topbar"><div class="brand">SMART QUIZ THPT<small>HUỲNH TẤN PHÁT – VĨNH LONG</small></div><div class="nav"><a style="color:white;text-decoration:none" href="{{ url_for('home') }}">⌂ Trang chủ</a>　 <a style="color:white;text-decoration:none" href="{{ url_for('home') }}">▤ Tạo đề</a>　 <a style="color:white;text-decoration:none" href="{{ url_for('question_bank') }}">▦ Ngân hàng câu hỏi</a>　 <a style="color:white;text-decoration:none" href="{{ url_for('import_word') }}">▣ Nhập đề Word</a>　 ♙ {{ teacher_name or session.get('judge_name') or 'Người trải nghiệm' }}</div></header>
 <div class="wrap"><main class="panel"><h1>▣ Nhập đề thi từ Word</h1><p class="intro">Chọn môn học và tải file đề thi định dạng .docx. Hệ thống sẽ đọc câu hỏi để thầy cô kiểm tra trước khi nhập vào ngân hàng.</p>
 {% if error %}<div class="error">{{ error }}</div>{% endif %}
 <form method="post" enctype="multipart/form-data"><div class="formgrid"><label for="subject">Chọn môn học:</label><select id="subject" name="subject" required>{% for s in subjects %}<option value="{{ s }}" {% if s==selected_subject %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></div>
@@ -820,7 +846,7 @@ IMPORT_PREVIEW_TEMPLATE = r"""
 {% if mc_count < 24 or tf_count < 4 %}<p class="warn">Ngân hàng cần tối thiểu 24 câu trắc nghiệm và 4 câu Đúng/Sai hợp lệ để tạo một lượt làm bài. Hiện file có {{ mc_count }} câu trắc nghiệm và {{ tf_count }} câu Đúng/Sai. Thầy có thể kiểm tra nhận dạng trước khi lưu.</p>{% endif %}
 <p>Câu trắc nghiệm hợp lệ có đủ A/B/C/D và đáp án nhận diện: {{ valid_mc }}. Câu Đúng/Sai hợp lệ có 4 nhận định và đáp án đủ: {{ valid_tf }}.</p>
 {% for q in questions %}<section class="question {% if q.type=='true_false' %}tf{% endif %}"><h3>Câu {{ q.number }}. {{ q.q }}</h3>{% if q.type=='true_false' %}<b>DẠNG ĐÚNG/SAI</b>{% for st in q.statements %}<p>{{ st.label }}) {{ st.text }} — Đáp án: {% if st.answer is none %}Chưa nhận diện{% elif st.answer %}Đúng{% else %}Sai{% endif %}</p>{% endfor %}{% else %}{% for label in ['A','B','C','D'] %}{% if q.options.get(label) %}<p>{{ label }}. {{ q.options[label] }}</p>{% endif %}{% endfor %}<b>Đáp án nhận diện: {{ q.answer or 'Chưa nhận diện' }}</b>{% endif %}</section>{% endfor %}
-<form method="post" enctype="multipart/form-data"><input type="hidden" name="action" value="save"><label>Môn học: <select name="subject">{% for s in subjects %}<option value="{{ s }}" {% if s==subject %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></label><p>Chọn lại đúng file Word vừa kiểm tra để xác nhận lưu.</p><input type="file" name="word_file" accept=".docx" required><div class="actions"><button class="green" type="submit">Nhập vào ngân hàng</button><a href="{{ url_for('import_word') }}">Chọn file khác</a><a href="{{ url_for('home') }}">Về trang chủ</a></div></form></div></div></body></html>
+{% if can_save %}<form method="post" enctype="multipart/form-data"><input type="hidden" name="action" value="save"><label>Môn học: <select name="subject">{% for s in subjects %}<option value="{{ s }}" {% if s==subject %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></label><p>Chọn lại đúng file Word vừa kiểm tra để xác nhận lưu vào ngân hàng chính thức.</p><input type="file" name="word_file" accept=".docx" required><div class="actions"><button class="green" type="submit">Nhập vào ngân hàng</button><a href="{{ url_for('import_word') }}">Chọn file khác</a><a href="{{ url_for('home') }}">Về trang chủ</a></div></form>{% else %}<div class="notice"><strong>Chế độ trải nghiệm dành cho giám khảo</strong>Thầy cô có thể tải tệp Word để kiểm tra hệ thống nhận dạng và xem trước kết quả. Để bảo vệ dữ liệu dự án, chức năng lưu vào ngân hàng chính thức chỉ dành cho giáo viên đăng nhập.</div><div class="actions"><a href="{{ url_for('import_word') }}">Thử tệp Word khác</a><a href="{{ url_for('home') }}">Về trang chủ</a></div>{% endif %}</div></div></body></html>
 """
 
 IMPORT_RESULT_TEMPLATE = r"""
